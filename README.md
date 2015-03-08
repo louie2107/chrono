@@ -2,7 +2,7 @@
 
 A simple Textview the counts up or down. Interval and font are configurable. Interfaces for event changes are also included.
 
-![Lantern](https://github.com/louie2107/chrono/raw/master/res/example.gif)
+![Lantern](https://raw.githubusercontent.com/louie2107/chrono/master/app/src/main/res/example.gif)
 
 # Get started
 An example application is included in the project.
