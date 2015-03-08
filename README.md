@@ -2,6 +2,8 @@
 
 A simple Textview the counts up or down. Interval and font are configurable. Interfaces for event changes are also included.
 
+![Lantern](https://github.com/louie2107/chrono/raw/master/res/example.gif)
+
 # Get started
 An example application is included in the project.
 
@@ -34,8 +36,6 @@ I plan on adding more features in the future, pull requests welcome.
 License
 --------
 The MIT License (MIT)
-
-Copyright (c) 2014 Myriad Mobile, www.myriadmobile.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
