@@ -6,6 +6,9 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+/**
+ * Helps display the font for a textview.
+ */
 public class CustomFontHelper {
 
     public static void setCustomFont(TextView textView, Context context, AttributeSet attrs) {

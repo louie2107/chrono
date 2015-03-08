@@ -8,16 +8,44 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 /**
- * Created by lumis on 3/7/2015.
+ * Textview that counts up or down, like a timer or a stopwatch.
  */
 public class Chrono extends TextView {
 
+    /**
+     * The current number of milliseconds being displayed.
+     */
     private long currentCount;
+
+    /**
+     * The interval of the counting.
+     */
     private long interval = 1000;
+
+    /**
+     * Whether the counter is currently counting.
+     */
     private boolean isCounting = false;
+
+    /**
+     * Whether the counter is coutning up.
+     */
     private boolean isCountingUp = true;
+
+    /**
+     * The handler for the counter.
+     */
     private Handler handler = new Handler();
+
+    /**
+     * Active Listener
+     */
     private OnChronoActiveListener onChronoActiveListener;
+
+    /**
+     * Change listener;
+     */
+
     private OnChronoChangeListener onChronoChangeListener;
     Runnable runnable = new Runnable() {
         @Override
@@ -49,11 +77,14 @@ public class Chrono extends TextView {
         init(context, attrs);
     }
 
+    /**
+     * Converts milliseconds to a readable string.
+     * @param totalSeconds The milliseconds to be formatted.
+     */
     private static String timeConversion(long totalSeconds) {
 
         final int MINUTES_IN_AN_HOUR = 60;
         final int SECONDS_IN_A_MINUTE = 60;
-
 
         long seconds = totalSeconds % SECONDS_IN_A_MINUTE;
         long totalMinutes = totalSeconds / SECONDS_IN_A_MINUTE;
@@ -81,16 +112,16 @@ public class Chrono extends TextView {
     public void startCounting() {
         isCounting = true;
         handler.post(runnable);
-        chronoActiveoChange();
+        chronoActiveChange();
     }
 
     public void stopCounting() {
         isCounting = false;
         handler.removeCallbacks(runnable);
-        chronoActiveoChange();
+        chronoActiveChange();
     }
 
-    private void chronoActiveoChange() {
+    private void chronoActiveChange() {
         if (onChronoActiveListener != null) {
             onChronoActiveListener.onChronoActiveChange(isCounting, currentCount);
         }
@@ -177,10 +208,16 @@ public class Chrono extends TextView {
         super.onRestoreInstanceState(state);
     }
 
+    /**
+     * Called when the currentCount changes.
+     */
     public interface OnChronoChangeListener {
         void onChronoChange(boolean isCounting, long currentCount);
     }
 
+    /**
+     * Called when counter is stopped or started.
+     */
     public interface OnChronoActiveListener {
         void onChronoActiveChange(boolean isCounting, long currentCount);
     }
